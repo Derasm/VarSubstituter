@@ -1,0 +1,11 @@
+﻿{
+  "RootFolder": "TestRoot",
+  "Files": [
+    { "Path": "TestRoot/file1.txt" },
+    { "Path": "TestRoot/file2.log" },
+    { "Path": "TestRoot/SubFolder/file3.txt" },
+    { "Path": "TestRoot/SubFolder/file4.json" }
+  ]
+}
+{
+}
