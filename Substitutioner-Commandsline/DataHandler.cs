@@ -8,7 +8,4 @@ public class DataHandler
     {
         Options = new CMD_Options();
     }
-    
-    
-    
 }

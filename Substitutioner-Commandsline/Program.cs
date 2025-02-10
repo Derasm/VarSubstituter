@@ -13,20 +13,31 @@ class Program
     private static DataHandler dataHandler;
     static int Main(string[] args)
     {
+        Console.WriteLine("Welcome to the Var Substitutioner!");
         return Parser.Default.ParseArguments<CMD_Options>(args)
         .MapResult(
-            (CMD_Options opts) => RunWithOptions(opts),
-            errs => HandleParseError(errs));
+            RunWithOptions,
+            HandleParseError);
     }
-    static int RunWithOptions(CMD_Options opts)
+    private static int RunWithOptions(CMD_Options opts)
     {
+        Console.WriteLine("Starting substitution...");
         if (opts.Verbose)
         {
             Console.WriteLine("Verbose mode enabled.");
             
         }
+        
         dataHandler = new DataHandler(opts);
-
+        Console.WriteLine(opts.Verbose ? "Verbose mode enabled." : "Debug mode enabled.");
+        Console.WriteLine(opts.FilePattern);
+        Console.WriteLine(opts.RootFolder);
+        Console.WriteLine(opts.FilesList);
+        foreach (string file in opts.Variables)
+        {
+            Console.WriteLine(file);
+        }
+            
         return 0; // Success
     }
     static int HandleParseError(IEnumerable<Error> errs)
